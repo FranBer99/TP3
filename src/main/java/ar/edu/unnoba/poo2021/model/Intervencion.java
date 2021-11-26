@@ -1,11 +1,10 @@
 package ar.edu.unnoba.poo2021.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Intervencion")
 public class Intervencion {
 
     @Id

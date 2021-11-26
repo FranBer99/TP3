@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
 
-
+@Entity
+@Table(name="Profesional")
 public class Profesional {
 
     @Id
