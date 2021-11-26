@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
-@Table(name="Profesional")
+@Table(name="profesional")
 public class Profesional {
 
     @Id

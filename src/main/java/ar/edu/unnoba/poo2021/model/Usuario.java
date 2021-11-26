@@ -3,7 +3,7 @@ package ar.edu.unnoba.poo2021.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Usuario")
+@Table(name="usuario")
 public class Usuario {
 
     @Id
