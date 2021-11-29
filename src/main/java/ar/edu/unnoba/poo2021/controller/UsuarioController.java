@@ -32,7 +32,8 @@ public class UsuarioController {
         userService.create(user);
         return "redirect:/usuarios";
     }
-
+    
+    /*
     @GetMapping("/delete/{id}")
     public String userDelete(@PathVariable("id") Long userId){
         userService.delete(userId);
@@ -44,5 +45,6 @@ public class UsuarioController {
         model.addAttribute("usuarios",userService.getUsuarios());
         return "users/index";
     }
+    */
 }
 
