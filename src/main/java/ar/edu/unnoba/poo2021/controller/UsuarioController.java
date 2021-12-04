@@ -1,6 +1,7 @@
 package ar.edu.unnoba.poo2021.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,32 +20,47 @@ public class UsuarioController {
     @Autowired
     private UsuarioService userService;
 
-    //"http://localhost:8080/usuarios/register"
+    @GetMapping
+    public String getUsers(Model model){
+        model.addAttribute("usuarios",userService.getUsuarios());
+        return "usuarios/lista";
+    }
+    
+    @GetMapping("/logout")
+    public String logout(){
+    	SecurityContextHolder.clearContext();
+        return "redirect:/login";
+    }
+    
     @GetMapping("/register")
     public String userNew(Model model){
         model.addAttribute("usuario",new Usuario());
         return "usuarios/register";
     }
 
-    //"http://localhost:8080/usuarios
-    @PostMapping
+    @PostMapping("/register")
     public String create(@ModelAttribute Usuario user){
         userService.create(user);
         return "redirect:/usuarios";
     }
     
-    /*
-    @GetMapping("/delete/{id}")
+    @GetMapping("/borrar/{id}")
     public String userDelete(@PathVariable("id") Long userId){
         userService.delete(userId);
-        return "redirect:/users";
+        return "redirect:/usuarios";
     }
     
-    @GetMapping
-    public String getUsers(Model model){
-        model.addAttribute("usuarios",userService.getUsuarios());
-        return "users/index";
+    @GetMapping("/editar/{id}")
+    public String userEdit(@PathVariable("id") Long userId, Model model){
+        Usuario usuario = userService.getUsuario(userId);
+        model.addAttribute("usuario",usuario);
+        return "usuarios/editar";
     }
-    */
+    
+    @PostMapping("/editar")
+    public String update(@ModelAttribute Usuario usuario){
+        userService.update(usuario);
+        return "redirect:/usuarios";
+    }
 }
 
