@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css">
 </head>
 <body>
+
 	<form action="#" th:action="@{/usuarios/logout}" method="get">
 		<button type="submit" class="btn btn-primary" name="sesion">Cerrar Sesion</button>
 	</form>
+
+    <form action="#" th:action="@{/}" method="get">
+        <button type="submit" class="btn btn-primary" name="sesion">Volver al inicio</button>
+    </form>
+
     <table class="table">
   <thead class="thead-dark">
     <tr>

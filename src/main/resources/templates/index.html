@@ -8,11 +8,24 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container-fluid">
-    <h1>Inicio</h1>
-    <a class="badge badge-primary" th:href="@{/usuarios/register}">Registrar Usuario</a>
-</div>
 
-<script src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js" ></script>
+    <form action="#" th:action="@{/usuarios/logout}" method="get">
+        <button type="submit" class="btn btn-primary" name="sesion">Cerrar Sesion</button>
+    </form>
+
+    <div class="container-fluid">
+        <h1>Inicio</h1>
+    </div>
+
+
+    <form action="#" th:action="@{/usuarios/register}" method="get">
+        <button type="submit" class="btn btn-primary" name="sesion">Registrar Usuario</button>
+    </form>
+
+    <form action="#" th:action="@{/usuarios}" method="get">
+        <button type="submit" class="btn btn-primary" name="sesion">Lista de usuarios</button>
+    </form>
+
+    <script src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js" ></script>
 </body>
 </html>
