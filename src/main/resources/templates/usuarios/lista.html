@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizarrap - Usuarios</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css">
+</head>
+<body>
+
+	<form action="#" th:action="@{/logout}" method="get">
+		<button type="submit" class="btn btn-primary" name="sesion">Cerrar Sesion</button>
+	</form>
+
+    <form action="#" th:action="@{/}" method="get">
+        <button type="submit" class="btn btn-primary" name="sesion">Volver al inicio</button>
+    </form>
+
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="usuario : ${usuarios}">
+            <td th:text="${usuario.email}"></td>
+            <td th:text="${usuario.nombre}"></td>
+            <td th:text="${usuario.apellido}"></td>
+            <td><a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}">Editar</a></td>
+            <td><a th:href="@{/usuarios/borrar/{id}(id=${usuario.id})}">Eliminar</a></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
